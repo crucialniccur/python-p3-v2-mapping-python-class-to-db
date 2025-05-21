@@ -38,3 +38,9 @@ class Department:
         CONN.commit()
 
         self.id = CURSOR.lastrowid
+
+    @classmethod
+    def create(cls, name, location):
+        department = cls(name, location)
+        department.save()
+        return department
