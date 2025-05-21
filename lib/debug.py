@@ -15,5 +15,14 @@ print(payroll)  # <Department None: Payroll, Building A, 5th Floor>
 hr = Department.create("Human Resources", "Building C, East Wing")
 print(hr)  # <Department 2: Human Resources, Building C, East Wing>
 
+hr.name = 'HR'
+hr.location = 'Building F, 10th Floor'
+hr.update()
+print(hr)
+
+print("Delete Payroll")
+payroll.delete()
+print(payroll)
+
 
 ipdb.set_trace()
