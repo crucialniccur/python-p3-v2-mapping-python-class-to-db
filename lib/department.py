@@ -44,3 +44,20 @@ class Department:
         department = cls(name, location)
         department.save()
         return department
+
+    def update(self):
+        sql = """
+                UPDATE departments
+                SET name = ?, location = ?
+                WHERE id = ?
+        """
+        CURSOR.execute(sql, (self.name, self.location, self.id))
+        CONN.commit()
+
+    def delete(self):
+        sql = """
+                DELETE FROM departmentS
+                WHERE id = ?
+        """
+        CURSOR.execute(sql, (self.id,))
+        CONN.commit()
