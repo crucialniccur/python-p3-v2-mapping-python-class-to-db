@@ -29,3 +29,12 @@ class Department:
         """
         CURSOR.execute(sql)
         CONN.commit()
+
+    def save(self):
+        sql = """INSERT INTO departments(name, location)
+                VALUES (?,?)
+        """
+        CURSOR.execute(sql, (self.name, self.location))
+        CONN.commit()
+
+        self.id = CURSOR.lastrowid
